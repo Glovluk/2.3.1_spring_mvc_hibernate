@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new user</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container p-4">
+    <h1>User Info</h1>
+    <form th:action="@{/saveUser}" th:object="${user}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" />
+        <br>
+
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" th:field="*{surname}" />
+        <br>
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" th:field="*{age}" />
+        <br>
+
+        <label for="dateOfBirth">Date of birth:</label>
+        <input type="text" id="dateOfBirth" th:field="*{dateOfBirth}" />
+        <br>
+
+        <label for="phone">Phone number:</label>
+        <input type="text" id="phone" th:field="*{phone}" />
+        <br>
+
+        <label for="passportSeries">Passport series:</label>
+        <input type="text" id="passportSeries" th:field="*{passportSeries}" />
+        <br>
+
+        <label for="passportNumber">Passport number:</label>
+        <input type="text" id="passportNumber" th:field="*{passportNumber}" />
+        <br>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" th:field="*{city}" />
+        <br>
+
+        <label for="company">Company:</label>
+        <input type="text" id="company" th:field="*{company}" />
+        <br>
+
+        <label for="department">Department:</label>
+        <input type="text" id="department" th:field="*{department}" />
+        <br>
+
+        <label for="salary">Salary:</label>
+        <input type="text" id="salary" th:field="*{salary}" />
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" th:field="*{email}" />
+        <br>
+
+        <input type="submit" value="OK" class="btn btn-primary">
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Table of users</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+<div class="container p-4">
+    <h1>Table of users</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>Date of birth</th>
+            <th>Phone number</th>
+            <th>Passport [series] [number]</th>
+            <th>City</th>
+            <th>Company</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Email</th>
+            <th>Operations</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${allUsers}">
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.surname}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.dateOfBirth}"></td>
+            <td th:text="${user.phone}" style="white-space: nowrap;"></td>
+            <td style="white-space: nowrap;">
+                <span th:text="${user.passportSeries} + ' ' + ${user.passportNumber}"></span>
+            </td>
+            <td th:text="${user.city}"></td>
+            <td th:text="${user.company}"></td>
+            <td th:text="${user.department}"></td>
+            <td th:text="${user.salary}"></td>
+            <td th:text="${user.email}"></td>
+            <td style="white-space: nowrap;">
+                <a th:href="@{/updateinfo(userId=${user.id})}"
+                   class="btn btn-primary btn-sm">Update</a>
+                <a th:href="@{/deleteUser(userId=${user.id})}"
+                   class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <input type="button" value="Add user" class="btn btn-primary"
+           onclick="window.location.href='addNewUser'"/>
+</div>
+</body>
+</html>
