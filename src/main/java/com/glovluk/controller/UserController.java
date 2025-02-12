@@ -19,7 +19,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/")  // GET-запрос для отображения всех пользователей
+    @GetMapping("/")
     public String showAllUsers(Model model) {
         List<User> allUsers = userService.findAll();
         model.addAttribute("allUsers", allUsers);
@@ -27,7 +27,7 @@ public class UserController {
         return "all-users";
     }
 
-    @GetMapping("/addNewUser")  // GET-запрос для отображения формы добавления нового пользователя
+    @GetMapping("/addNewUser")
     public String addNewUser(Model model) {
         User employee = new User();
         model.addAttribute("user", employee);
